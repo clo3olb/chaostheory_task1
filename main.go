@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/clo3olb/chaostheory_task1/server"
 
 func main() {
-	fmt.Println("Hello World")
+	server.Start()
 }

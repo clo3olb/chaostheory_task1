@@ -1,0 +1,21 @@
+GET http://localhost:80/
+###
+
+GET http://localhost:80/list
+###
+
+POST http://localhost:80/add
+
+{
+    "key": "sample key",
+    "value": "sample value"
+}
+### 
+
+POST http://localhost:80/add
+
+{
+    "key": "",
+    "vaue": "some other value"
+}
+### 
