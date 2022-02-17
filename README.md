@@ -142,6 +142,7 @@ Adds data to the database.
 
 ```sh
 curl -X POST \
+   -H "Content-Type: application/json" \
    -d '{"value": "sample value"}' \
    http://localhost:80/data/samplekey
 ```
@@ -198,6 +199,7 @@ Adds data to the database.
 
 ```sh
 curl -X PUT \
+   -H "Content-Type: application/json" \
    -d '{"value": "sample value"}' \
    http://localhost:80/data/samplekey
 ```
