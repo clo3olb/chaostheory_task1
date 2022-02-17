@@ -3,7 +3,6 @@ package server
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"strings"
 )
@@ -33,9 +32,6 @@ func parsePayload(w http.ResponseWriter, r *http.Request) (*RequestDataPayload, 
 	if err != nil {
 		return nil, NewClientError(http.StatusBadRequest, err)
 	}
-
-	fmt.Println(payload.Key, payload.Value)
-	fmt.Println(payload)
 
 	return payload, nil
 }

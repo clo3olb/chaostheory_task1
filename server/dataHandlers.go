@@ -3,7 +3,6 @@ package server
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 
 	"github.com/clo3olb/chaostheory_task1/database"
@@ -102,8 +101,10 @@ func deleteDataHandler(w http.ResponseWriter, r *http.Request) error {
 		return NewClientError(http.StatusBadRequest, err)
 	}
 
-	fmt.Println(key)
-	database.DB().Delete(key)
+	err = database.DB().Delete(key)
+	if err != nil {
+		return NewClientError(http.StatusNotFound, err)
+	}
 	json.NewEncoder(w).Encode(response{"Data deleted."})
 	w.WriteHeader(http.StatusOK)
 

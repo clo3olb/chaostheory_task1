@@ -58,10 +58,12 @@ func (d *db) Update(key string, value string) error {
 	return nil
 }
 
-func (d *db) Delete(key string) {
+func (d *db) Delete(key string) error {
 	if d.Exists(key) {
 		delete(d.dataMap, key)
+		return nil
 	}
+	return errors.New("data not found")
 }
 
 func (d *db) GetDataList() []Data {
