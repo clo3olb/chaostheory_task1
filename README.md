@@ -45,7 +45,7 @@ Displays paths and descriptions of each endpoints
 | `/`  |  GET   |
 
 ```sh
-$ curl -X GET http://localhost:80/
+curl -X GET http://localhost:80/
 ```
 
 ### Response
@@ -81,7 +81,7 @@ Lists all the data in the database as an array
 | `/list` |  GET   |
 
 ```sh
-$ curl -X GET http://localhost:80/list
+curl -X GET http://localhost:80/list
 ```
 
 ### Response
@@ -112,7 +112,7 @@ Adds data to the database.
 | `/add` |  POST  |  true   |
 
 ```sh
-$ curl -X POST \
+curl -X POST \
     -H "Content-Type: application/json" \
     -d '{"key": "sample key", "value": "sample value"}' \
     http://localhost:80/add
