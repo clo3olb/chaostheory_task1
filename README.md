@@ -110,7 +110,7 @@ Adds data to the database.
 | `/data` |  GET   |
 
 ```sh
-curl -X POST http://localhost:80/data
+curl -X GET http://localhost:80/data
 ```
 
 ### Response
