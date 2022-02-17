@@ -13,21 +13,21 @@
 To start using this package, install Docker and use `git clone` and move to cloned repository:
 
 ```sh
-$ git clone https://github.com/clo3olb/chaostheory_task1.git
+git clone https://github.com/clo3olb/chaostheory_task1.git
 ```
 
 ```sh
-$ cd chaostheory_task1/
+cd chaostheory_task1/
 ```
 
 Use commands as follows to build docker image and create container.
 
 ```sh
-$ docker build -t test-server .
+docker build -t test-server .
 ```
 
 ```sh
-$ docker run --rm -p 80:80 test-server
+docker run --rm -p 80:80 test-server
 ```
 
 # REST API
