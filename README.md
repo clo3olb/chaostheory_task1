@@ -34,42 +34,6 @@ docker run --rm -p 80:80 test-server
 
 The REST API to the JSON Server is described below.
 
-## Documentation(Home)
-
-Displays paths and descriptions of each endpoints
-
-### Request
-
-| Path | Method |
-| :--: | :----: |
-| `/`  |  GET   |
-
-```sh
-curl -X GET http://localhost:80/
-```
-
-### Response
-
-```
-[
-   {
-      "path":"http://localhost:80/",
-      "method":"GET",
-      "description":Displays paths and descriptions of each endpoints"
-   },
-   {
-      "path":"http://localhost:80/list",
-      "method":"GET",
-      "description":"Lists all the data in the database as an array"
-   },
-   {
-      "path":"http://localhost:80/add",
-      "method":"POST",
-      "description":"Adds data to the database. Example Format : { \"key\": \"string\", \"value\": \"string\" }"
-   }
-]
-```
-
 ## List Data
 
 Lists all the data in the database as an array
@@ -107,9 +71,9 @@ Adds data to the database.
 
 ### Request
 
-|  Path  | Method | Payload |
-| :----: | :----: | :-----: |
-| `/add` |  POST  |  true   |
+|  Path  | Method |
+| :----: | :----: |
+| `/add` |  POST  |
 
 ```sh
 curl -X POST \
@@ -130,5 +94,146 @@ curl -X POST \
 ```
 {
     "data":"Data created."
+}
+```
+
+# RESTful Approaches for Data
+
+## list
+
+Adds data to the database.
+
+### Request
+
+|  Path   | Method |
+| :-----: | :----: |
+| `/data` |  GET   |
+
+```sh
+curl -X POST http://localhost:80/data
+```
+
+### Response
+
+```
+[
+   {
+      "timestamp":"2022-02-16T17:01:27Z",
+      "key":"another sample key",
+      "value":"another sample value"
+   },
+   {
+      "timestamp":"2022-02-16T17:00:30Z",
+      "key":"sample key",
+      "value":"sample value"
+   }
+]
+```
+
+## Create(POST)
+
+Adds data to the database.
+
+### Request
+
+|     Path      | Method |
+| :-----------: | :----: |
+| `/data/{key}` |  POST  |
+
+```sh
+curl -X POST \
+   -d '{"value": "sample value"}'
+   http://localhost:80/data/samplekey
+```
+
+### Payload
+
+| Parameter | type   |
+| --------- | ------ |
+| value     | string |
+
+### Response
+
+```
+{
+  "timestamp": "2022-02-17T14:16:19Z",
+  "key": "samplekey",
+  "value": "some other value"
+}
+```
+
+## Read(GET)
+
+Adds data to the database.
+
+### Request
+
+|     Path      | Method |
+| :-----------: | :----: |
+| `/data/{key}` |  GET   |
+
+```sh
+curl -X GET http://localhost:80/data/samplekey
+```
+
+### Response
+
+```
+{
+  "timestamp": "2022-02-17T14:16:19Z",
+  "key": "samplekey",
+  "value": "some other value"
+}
+```
+
+## Update(PUT)
+
+Adds data to the database.
+
+### Request
+
+|     Path      | Method |
+| :-----------: | :----: |
+| `/data/{key}` |  PUT   |
+
+```sh
+curl -X PUT \
+   -d '{"value": "sample value"}'
+   http://localhost:80/data/samplekey
+```
+
+### Payload
+
+| Parameter | type   |
+| --------- | ------ |
+| value     | string |
+
+### Response
+
+```
+{
+  "data": "Data updated."
+}
+```
+
+## Read(DELETE)
+
+Adds data to the database.
+
+### Request
+
+|     Path      | Method |
+| :-----------: | :----: |
+| `/data/{key}` | DELETE |
+
+```sh
+curl -X DELETE http://localhost:80/data/samplekey
+```
+
+### Response
+
+```
+{
+  "data": "Data deleted."
 }
 ```

@@ -20,21 +20,19 @@ POST http://localhost:80/add
 }
 ### 
 
-POST  http://localhost:80/data/hello
+POST  http://localhost:80/data/samplekey
 
 {
-    "key": "hello",
     "value": "some other value"
 }
 ### 
-GET  http://localhost:80/data
+GET  http://localhost:80/data/samplekey
 ### 
-PUT  http://localhost:80/data/d
+PUT  http://localhost:80/data/samplekey
 
 {
-    "key": "d",
     "value": "some fjeisjf"
 }
 ### 
-DELETE  http://localhost:80/data/herdllo
+DELETE  http://localhost:80/data/samplekey
 ### 
