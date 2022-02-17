@@ -13,7 +13,7 @@
 To start using this package, install Docker and use `git clone`:
 
 ```sh
-$ git clone github.com/clo3olb/chaostheory_task1
+$ git clone https://github.com/clo3olb/chaostheory_task1.git
 ```
 
 Use commands as follows.
