@@ -101,7 +101,7 @@ curl -X POST \
 
 ## list
 
-Adds data to the database.
+Lists all the data in the database as an array
 
 ### Request
 
@@ -132,7 +132,7 @@ curl -X GET http://localhost:80/data
 
 ## Create(POST)
 
-Adds data to the database.
+Adds data to the database with specified key and value.
 
 ### Request
 
@@ -165,7 +165,7 @@ curl -X POST \
 
 ## Read(GET)
 
-Adds data to the database.
+Gets data from the database with specified key.
 
 ### Request
 
@@ -189,7 +189,7 @@ curl -X GET http://localhost:80/data/samplekey
 
 ## Update(PUT)
 
-Adds data to the database.
+Updates data in the database with specified key and value.
 
 ### Request
 
@@ -220,7 +220,7 @@ curl -X PUT \
 
 ## Read(DELETE)
 
-Adds data to the database.
+Deletes data from the database with specified key.
 
 ### Request
 
