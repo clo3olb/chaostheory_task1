@@ -1,10 +1,5 @@
 package server
 
-type Error interface {
-	ResponseHeader() int
-	ResponseBody() string
-}
-
 type ClientError struct {
 	Status int   `json:"-"`
 	Cause  error `json:"-"`

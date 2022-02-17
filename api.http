@@ -7,7 +7,7 @@ GET http://localhost:80/list
 POST http://localhost:80/add
 
 {
-    "key": "another sample key",
+    "key": "herdllo",
     "value": "another sample value"
 }
 ### 
@@ -15,7 +15,26 @@ POST http://localhost:80/add
 POST http://localhost:80/add
 
 {
-    "key": "",
-    "vaue": "some other value"
+    "key": "d",
+    "value": "some other value"
 }
+### 
+
+POST  http://localhost:80/data/hello
+
+{
+    "key": "hello",
+    "value": "some other value"
+}
+### 
+GET  http://localhost:80/data
+### 
+PUT  http://localhost:80/data/d
+
+{
+    "key": "d",
+    "value": "some fjeisjf"
+}
+### 
+DELETE  http://localhost:80/data/herdllo
 ### 

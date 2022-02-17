@@ -34,11 +34,37 @@ func (d *db) Exists(key string) bool {
 	return exists
 }
 
-func (d *db) Add(newData Data) {
-	d.dataMap[newData.Key] = newData
+func (d *db) Find(key string) (*Data, error) {
+	data, exists := d.dataMap[key]
+	if exists {
+		return &data, nil
+	}
+	return nil, errors.New("data not found")
 }
 
-func GetDataList(d *db) []Data {
+func (d *db) Create(key string, value string) error {
+	if d.Exists(key) {
+		return errors.New("data already exits")
+	}
+	d.dataMap[key] = *FormatData(key, value)
+	return nil
+}
+
+func (d *db) Update(key string, value string) error {
+	if !d.Exists(key) {
+		return errors.New("data not found")
+	}
+	d.dataMap[key] = *FormatData(key, value)
+	return nil
+}
+
+func (d *db) Delete(key string) {
+	if d.Exists(key) {
+		delete(d.dataMap, key)
+	}
+}
+
+func (d *db) GetDataList() []Data {
 	list := []Data{}
 	for _, data := range d.dataMap {
 		list = append(list, data)
@@ -55,12 +81,12 @@ func Sort(list []Data) []Data {
 	return list
 }
 
-func FormatData(key string, value string) (*Data, error) {
-	if key == "" {
-		return nil, errors.New("\"key\" is empty")
-	}
-	if value == "" {
-		return nil, errors.New("\"value\" is empty")
-	}
-	return &Data{Timestamp: time.Now().UTC().Format(timeFormat), Key: key, Value: value}, nil
+func getCurrentTimestamp() string {
+	return time.Now().UTC().Format(timeFormat)
+}
+
+func FormatData(key string, value string) *Data {
+	newData := &Data{Key: key, Value: value}
+	newData.Timestamp = getCurrentTimestamp()
+	return newData
 }

@@ -23,10 +23,16 @@ func Start() error {
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.SetHeader("Content-Type", "application/json"))
 
-	// page handlers
-	r.Get("/", handle(documentationHandler))
+	// data handlers
 	r.Get("/list", handle(listHandler))
 	r.Post("/add", handle(addHandler))
+
+	// CRUD approach for REST API of data
+	r.Get("/data", handle(listHandler))
+	r.Get("/data/{key}", handle(readDataHandler))
+	r.Post("/data/{key}", handle(createDataHandler))
+	r.Put("/data/{key}", handle(updateDataHandler))
+	r.Delete("/data/{key}", handle(deleteDataHandler))
 
 	// Logging server starts.
 	fmt.Printf("Server is listening: %s:%d\n", serverBaseUrl, port)
