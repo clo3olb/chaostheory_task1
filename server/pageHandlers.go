@@ -70,8 +70,13 @@ func addHandler(w http.ResponseWriter, r *http.Request) error {
 		return NewClientError(http.StatusBadRequest, err)
 	}
 
+	responseMessage := "Data created."
+	if database.DB().Exists(newData.Key) {
+		responseMessage = "Data changed."
+	}
+
 	database.DB().Add(*newData)
-	json.NewEncoder(w).Encode(response{"Data created."})
+	json.NewEncoder(w).Encode(response{responseMessage})
 	w.WriteHeader(http.StatusCreated)
 	return nil
 }

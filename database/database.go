@@ -29,6 +29,11 @@ func DB() *db {
 	return theDatabase
 }
 
+func (d *db) Exists(key string) bool {
+	_, exists := d.dataMap[key]
+	return exists
+}
+
 func (d *db) Add(newData Data) {
 	d.dataMap[newData.Key] = newData
 }
