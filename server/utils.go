@@ -21,10 +21,6 @@ func getKeyFromURL(url string) (string, error) {
 	return paths[2], nil
 }
 
-func getPageUrl(path string) string {
-	return fmt.Sprintf("%s:%d%s", serverBaseUrl, port, path)
-}
-
 func parsePayload(w http.ResponseWriter, r *http.Request) (*RequestDataPayload, error) {
 	payload := &RequestDataPayload{}
 
