@@ -142,7 +142,7 @@ Adds data to the database.
 
 ```sh
 curl -X POST \
-   -d '{"value": "sample value"}'
+   -d '{"value": "sample value"}' \
    http://localhost:80/data/samplekey
 ```
 
@@ -198,7 +198,7 @@ Adds data to the database.
 
 ```sh
 curl -X PUT \
-   -d '{"value": "sample value"}'
+   -d '{"value": "sample value"}' \
    http://localhost:80/data/samplekey
 ```
 
