@@ -1,7 +1,14 @@
 package main
 
-import "github.com/clo3olb/chaostheory_task1/server"
+import (
+	"fmt"
+
+	"github.com/clo3olb/chaostheory_task1/server"
+)
 
 func main() {
-	server.Start()
+	err := server.Start()
+	if err != nil {
+		fmt.Println(err)
+	}
 }

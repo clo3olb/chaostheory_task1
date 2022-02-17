@@ -13,7 +13,7 @@ const (
 	serverBaseUrl string = "http://localhost"
 )
 
-func Start() {
+func Start() error {
 
 	// Creates Router
 	r := chi.NewRouter()
@@ -30,5 +30,5 @@ func Start() {
 
 	// Logging server starts.
 	fmt.Printf("Server is listening: %s:%d\n", serverBaseUrl, port)
-	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
+	return http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 }
