@@ -18,7 +18,6 @@ func Start() {
 	// Creates Router
 	r := chi.NewRouter()
 
-	// Use middlewares
 	r.Use(middleware.RequestID)
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
@@ -29,7 +28,7 @@ func Start() {
 	r.Get("/list", handle(listHandler))
 	r.Post("/add", handle(addHandler))
 
-	// Loggin server starts.
+	// Logging server starts.
 	fmt.Printf("Server is listening: %s:%d\n", serverBaseUrl, port)
 	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 }

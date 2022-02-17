@@ -17,11 +17,11 @@ func handle(fn handler) http.HandlerFunc {
 		err := fn(w, r)
 		if err != nil {
 			switch e := err.(type) {
-			case ClientError:
+			case ClientError: // Client Error
 				fmt.Printf("Client Error: %s\n", err)
 				w.WriteHeader(e.StatusCode())
 				json.NewEncoder(w).Encode(response{err.Error()})
-			default:
+			default: // Server Error
 				fmt.Printf("Server Error: %s\n", err)
 				w.WriteHeader(http.StatusInternalServerError)
 				json.NewEncoder(w).Encode(response{"Internal Server Error"})

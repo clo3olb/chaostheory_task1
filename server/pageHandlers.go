@@ -22,12 +22,12 @@ var pages = []pageInfo{
 	{
 		Path:        getPageUrl("/"),
 		Method:      "GET",
-		Description: "Displays paths and documentation of the REST API",
+		Description: "Displays paths and descriptions of each endpoints",
 	},
 	{
 		Path:        getPageUrl("/list"),
 		Method:      "GET",
-		Description: "Lists all the data in database as an array",
+		Description: "Lists all the data in the database as an array",
 	},
 	{
 		Path:        getPageUrl("/add"),

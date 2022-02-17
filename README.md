@@ -32,9 +32,13 @@ The REST API to the JSON Server is described below.
 
 ## Documentation(Home)
 
-Displays paths and documentation of the REST API
+Displays paths and descriptions of each endpoints
 
 ### Request
+
+| Path | Method |
+| :--: | :----: |
+| `/`  |  GET   |
 
 ```sh
 $ curl -X GET http://localhost:80/
@@ -47,12 +51,12 @@ $ curl -X GET http://localhost:80/
    {
       "path":"http://localhost:80/",
       "method":"GET",
-      "description":"Displays paths and documentation of the REST API"
+      "description":Displays paths and descriptions of each endpoints"
    },
    {
       "path":"http://localhost:80/list",
       "method":"GET",
-      "description":"Lists all the data in database as an array"
+      "description":"Lists all the data in the database as an array"
    },
    {
       "path":"http://localhost:80/add",
@@ -64,9 +68,13 @@ $ curl -X GET http://localhost:80/
 
 ## List Data
 
-Lists all the data in database as an array
+Lists all the data in the database as an array
 
 ### Request
+
+|  Path   | Method |
+| :-----: | :----: |
+| `/list` |  GET   |
 
 ```sh
 $ curl -X GET http://localhost:80/list
@@ -95,16 +103,23 @@ Adds data to the database.
 
 ### Request
 
+|  Path  | Method | Payload |
+| :----: | :----: | :-----: |
+| `/add` |  POST  |  true   |
+
+```sh
+$ curl -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"key": "sample key", "value": "sample value"}' \
+    http://localhost:80/add
+```
+
+### Payload
+
 | Parameter | type   |
 | --------- | ------ |
 | key       | string |
 | value     | string |
-
-```sh
-$ curl -X POST -H "Content-Type: application/json" \
-    -d '{"key": "sample key", "value": "sample value"}' \
-    http://localhost:80/add
-```
 
 ### Response
 
