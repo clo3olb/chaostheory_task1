@@ -218,7 +218,7 @@ curl -X PUT \
 }
 ```
 
-## Read(DELETE)
+## Delete(DELETE)
 
 Deletes data from the database with specified key.
 
